@@ -1,0 +1,13 @@
+title: $:/plugins/federatial/logic-model/readme
+
+\define create-new-logic-model()
+<$action-log msg="I'm here!"/>
+<$action-sendmessage
+	$message="tm-new-tiddler"
+	is-logic-model="yes"
+/>
+\end
+
+<$button actions=<<create-new-logic-model>>>
+Create new logic model
+</$button>

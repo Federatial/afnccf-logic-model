@@ -1,0 +1,6 @@
+{
+	"title": "$:/plugins/federatial/logic-model",
+	"name": "logic-model",
+	"description": "Logic Model for AFNCCF",
+	"list": "readme"
+}

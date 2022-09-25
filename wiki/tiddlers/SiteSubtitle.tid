@@ -1,0 +1,9 @@
+title: $:/SiteSubtitle
+
+An interactive, translatable planning card in ~TiddlyWiki
+<br><br>
+<a href="https://federatial.com/" target="_blank" rel="noopener noreferrer">[img width=150 [black-logo-word@2000w.png]]</a>
+<br><br>
+<$link to="HelloThere" class="tc-btn-big-green">
+''What is this?''
+</$link>

@@ -1,0 +1,18 @@
+{
+    "description": "Empty edition",
+    "plugins": [],
+    "themes": [
+        "tiddlywiki/vanilla",
+        "tiddlywiki/snowwhite"
+    ],
+	"languages": [
+		"de-DE",
+		"es-ES"
+    ],
+    "build": {
+        "index": [
+            "--render","$:/core/save/all","index.html","text/plain",
+            "--render","$:/plugins/federatial/aim-questionnaire","aim-questionnaire.json","text/plain","$:/core/templates/json-tiddler"
+        ]
+    }
+}

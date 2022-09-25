@@ -1,0 +1,4 @@
+title: $:/plugins/federatial/logic-model/edit-template-body-cascade
+tags: $:/tags/EditTemplateBodyFilter
+list-before:
+text: [field:is-logic-model[yes]then[$:/plugins/federatial/logic-model/view-template-body]]

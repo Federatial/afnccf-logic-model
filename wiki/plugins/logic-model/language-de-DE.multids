@@ -1,0 +1,12 @@
+title: $:/plugins/federatial/logic-model/language/de-DE/
+
+target/Title: Ziel
+target/Description: Für wen ist die Intervention bestimmt?
+intervention/Title: Intervention
+intervention/Description: Was ist die Intervention?
+change-mechanisms/Title: Änderungsmechanismen
+change-mechanisms/Description: Wie und warum funktioniert Ihre Intervention?
+outcomes/Title: Ergebnisse
+outcomes/Description: Welchen Unterschied wird sie machen?
+moderators/Title: Moderatoren
+moderators/Description: Welche Faktoren werden den Änderungsprozess beeinflussen?

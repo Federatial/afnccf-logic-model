@@ -1,0 +1,70 @@
+title: $:/plugins/federatial/logic-model/Styles
+tags: $:/tags/Stylesheet
+
+\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline
+
+.lm-container, .lm-container tr, .lm-container td {
+	border: none;
+	vertical-align: bottom;
+}
+
+.lm-container td {
+	text-align: center;
+	padding: 0.5em;
+}
+
+.lm-row-dots td {
+	padding: 0.5em;
+	width: 25%;
+}
+
+.lm-topic-dot {
+	background-color: #FFFFFF;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	margin: 0.25em;
+}
+
+.lm-row-title td {
+	margin-bottom: 0.5em;
+}
+
+.lm-title {
+	line-height: 1.2;
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.lm-subtitle {
+	line-height: 1.2;
+	color: #fff;
+	font-size: 1.1em;
+}
+
+.lm-item {
+	background: #fff;
+	padding: 0.25em;
+	height: 100%;
+}
+
+.lm-column-target {
+	background-color: #D7443A;
+}
+
+.lm-column-intervention {
+	background-color: #E4762B;
+}
+
+.lm-column-change-mechanisms {
+	background-color: #00949C;
+}
+
+.lm-column-outcomes {
+	background-color: #009473;
+}
+
+.lm-column-moderators {
+	background-color: #594F47;
+}

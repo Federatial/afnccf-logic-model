@@ -1,0 +1,23 @@
+{
+  "name": "afnccf-logic-model",
+  "version": "1.0.0",
+  "description": "Anna Freud Centre's Logic Model tools for TiddlyWiki",
+  "dependencies": {
+    "tiddlywiki": "github:Jermolene/TiddlyWiki5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "npx tiddlywiki wiki --load languages/en-GB/ --listen",
+    "build": "npx tiddlywiki wiki --output ./output --load languages/en-GB/ --build index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Federatial/afnccf-logic-model.git"
+  },
+  "author": "Jeremy Ruston",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Federatial/afnccf-logic-model/issues"
+  },
+  "homepage": "https://github.com/Federatial/afnccf-logic-model#readme"
+}
