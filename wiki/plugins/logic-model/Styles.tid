@@ -47,6 +47,7 @@ tags: $:/tags/Stylesheet
 	background: #fff;
 	padding: 0.25em;
 	height: 100%;
+	min-height: 3em;
 }
 
 .lm-column-target {
