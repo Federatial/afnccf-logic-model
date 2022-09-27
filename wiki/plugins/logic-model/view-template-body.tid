@@ -55,6 +55,24 @@ title: $:/plugins/federatial/logic-model/view-template-body
 				</$list>
 			</tr>
 		</$list>
+		<tr class="lm-row-bottom-header">
+			<td class="lm-column-moderators">
+				<$list filter="[range[1],[5]]" variable="ignore">
+					<div class="lm-topic-dot">
+					</div>
+				</$list>
+			</td>
+			<td class="lm-column-moderators">
+				<div class="lm-title">
+					<$macrocall $name="lingo" id="moderators/Title"/>
+				</div>
+			</td>
+			<td colspan="2" class="lm-column-moderators">
+				<div class="lm-subtitle">
+					<$macrocall $name="lingo" id="moderators/Description"/>
+				</div>
+			</td>
+		</tr>
 		<$list filter="[range[0],[1]]" variable="row">
 			<tr class="lm-row-bottom-items">
 				<$list filter="[range[0],[3]]" variable="column">
@@ -76,24 +94,6 @@ title: $:/plugins/federatial/logic-model/view-template-body
 				</$list>
 			</tr>
 		</$list>
-		<tr class="lm-row-bottom-header">
-			<td class="lm-column-moderators">
-				<$list filter="[range[1],[5]]" variable="ignore">
-					<div class="lm-topic-dot">
-					</div>
-				</$list>
-			</td>
-			<td class="lm-column-moderators">
-				<div class="lm-title">
-					<$macrocall $name="lingo" id="moderators/Title"/>
-				</div>
-			</td>
-			<td colspan="2" class="lm-column-moderators">
-				<div class="lm-subtitle">
-					<$macrocall $name="lingo" id="moderators/Description"/>
-				</div>
-			</td>
-		</tr>
 	</table>
 </$let>
 \end
