@@ -10,3 +10,4 @@ outcomes/Title: Ergebnisse
 outcomes/Description: Welchen Unterschied wird sie machen?
 moderators/Title: Moderatoren
 moderators/Description: Welche Faktoren werden den Änderungsprozess beeinflussen?
+edit/Warning: Dieses Logikmodell befindet sich im Bearbeitungsmodus. Achten Sie darauf, auf die Schaltfläche {{$:/core/ui/Buttons/save}} zu klicken, wenn die Bearbeitung abgeschlossen ist.

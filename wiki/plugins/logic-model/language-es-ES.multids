@@ -10,3 +10,4 @@ outcomes/Title: Resultados
 outcomes/Description: ¿Qué diferencia va a hacer?
 moderators/Title: Moderadores
 moderators/Description: ¿Qué factores van a influir en el proceso de cambio?
+edit/Warning: Este modelo lógico está en modo de edición. Asegúrese de hacer clic en el botón {{$:/core/ui/Buttons/save}} cuando finalice la edición.

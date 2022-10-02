@@ -7,10 +7,15 @@ title: $:/plugins/federatial/logic-model/view-template-body
 
 \define logic-model(edit-mode:"no")
 \whitespace trim
+<$list filter="[<__edit-mode__>match[yes]]" variable="ignore">
+<div class="lm-edit-warning">
+<<lingo edit/Warning>>
+</div>
+</$list>
 <$let
 	columns="target intervention change-mechanisms outcomes"
 >
-	<table height="1px" class={{{ lm-container [<edit-mode>match[yes]then[lm-container-edit]] +[join[ ]] }}}>
+	<table height="1px" class={{{ lm-container [<__edit-mode__>match[yes]then[lm-container-edit]] +[join[ ]] }}}>
 		<tr class="lm-row-dots">
 			<$list filter="[enlist<columns>]" variable="column" counter="counter">
 				<td class={{{ [[lm-column-]addsuffix<column>] }}}>
