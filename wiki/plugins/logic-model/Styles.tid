@@ -8,6 +8,10 @@ tags: $:/tags/Stylesheet
 	vertical-align: bottom;
 }
 
+.lm-container {
+	min-width: 100%;
+}
+
 .lm-container td {
 	text-align: center;
 	padding: 0.5em;
