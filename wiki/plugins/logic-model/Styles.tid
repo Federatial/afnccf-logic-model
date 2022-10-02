@@ -54,6 +54,10 @@ tags: $:/tags/Stylesheet
 	min-height: 3em;
 }
 
+.lm-item textarea {
+	width: 100%;
+}
+
 .lm-column-target {
 	background-color: #D7443A;
 }
