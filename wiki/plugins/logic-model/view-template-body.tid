@@ -18,17 +18,19 @@ title: $:/plugins/federatial/logic-model/view-template-body
 	<table height="1px" class={{{ lm-container [<__edit-mode__>match[yes]then[lm-container-edit]] +[join[ ]] }}}>
 		<tr class="lm-row-dots">
 			<$list filter="[enlist<columns>]" variable="column" counter="counter">
-				<td class={{{ [[lm-column-]addsuffix<column>] }}}>
+				<td class={{{ lm-column-items [[lm-column-]addsuffix<column>] +[join[ ]]}}}>
 					<$list filter="[range[1],<counter>]" variable="ignore">
 						<div class="lm-topic-dot">
 						</div>
 					</$list>
 				</td>
+				<td class={{{ [[lm-column-arrows]] [[lm-column-]addsuffix<column>] +[join[ ]] }}}>
+				</td>
 			</$list>
 		</tr>
 		<tr class="lm-row-title">
 			<$list filter="[enlist<columns>]" variable="column">
-				<td class={{{ [[lm-column-]addsuffix<column>] }}}>
+				<td class={{{ lm-column-items [[lm-column-]addsuffix<column>] +[join[ ]]}}}>
 					<div>
 						<div class="lm-title">
 							<$macrocall $name="lingo" id={{{ [<column>addsuffix[/Title]] }}}/>
@@ -38,15 +40,17 @@ title: $:/plugins/federatial/logic-model/view-template-body
 						</div>
 					</div>
 				</td>
+				<td class={{{ [[lm-column-arrows]] [[lm-column-]addsuffix<column>] +[join[ ]] }}}>
+				</td>
 			</$list>
 		</tr>
 		<$list filter="[range[0],[5]]" variable="row">
 			<tr class="lm-row-item">
-				<$list filter="[enlist<columns>]" variable="column">
+				<$list filter="[enlist<columns>]" variable="column" counter="column-counter">
 					<$let
 						item={{{ [[topic-]addsuffix<column>addsuffix[-]addsuffix<row>] }}}
 					>
-						<td class={{{ [[lm-column-]addsuffix<column>] }}}>
+						<td class={{{ lm-column-items [[lm-column-]addsuffix<column>] +[join[ ]]}}}>
 							<div class="lm-item">
 								<$list filter="[<__edit-mode__>match[yes]]" variable="ignore">
 									<$edit-text field=<<item>> tag="textarea" default=""/>
@@ -56,10 +60,17 @@ title: $:/plugins/federatial/logic-model/view-template-body
 								</$list>
 							</div>
 						</td>
+						<$list filter="[<column-counter-last>match[no]]">
+							<td class={{{ [[lm-column-arrows]] [[lm-column-]addsuffix<column>] +[join[ ]] }}}>
+								<svg width="1em" height="3em" viewBox="0 0 10 30"><path d="M0,0 L10,15 L0,30"/></svg>
+							</td>
+						</$list>
 					</$let>
 				</$list>
 			</tr>
 		</$list>
+	</table>
+	<table height="1px" class={{{ lm-container [<__edit-mode__>match[yes]then[lm-container-edit]] +[join[ ]] }}}>
 		<tr class="lm-row-bottom-header">
 			<td class="lm-column-moderators">
 				<$list filter="[range[1],[5]]" variable="ignore">
@@ -72,7 +83,7 @@ title: $:/plugins/federatial/logic-model/view-template-body
 					<$macrocall $name="lingo" id="moderators/Title"/>
 				</div>
 			</td>
-			<td colspan="2" class="lm-column-moderators">
+			<td colspan="3" class="lm-column-moderators">
 				<div class="lm-subtitle">
 					<$macrocall $name="lingo" id="moderators/Description"/>
 				</div>
