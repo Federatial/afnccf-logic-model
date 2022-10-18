@@ -6,8 +6,8 @@
     "tiddlywiki": "github:Jermolene/TiddlyWiki5"
   },
   "scripts": {
-    "start": "npx tiddlywiki wiki --load languages/en-GB/ --listen",
-    "build": "npx tiddlywiki wiki --output ./output --load languages/en-GB/ --build index"
+    "start": "npx tiddlywiki wiki --listen",
+    "build": "npx tiddlywiki wiki --output ./output --build index"
   },
   "repository": {
     "type": "git",
