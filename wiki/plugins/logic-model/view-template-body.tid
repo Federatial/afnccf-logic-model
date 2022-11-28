@@ -32,15 +32,18 @@ title: $:/plugins/federatial/logic-model/view-template-body
 >
 	<table height="1px" class={{{ lm-container [<__edit-mode__>match[yes]then[lm-container-edit]] +[join[ ]] }}}>
 		<tr class="lm-row-dots">
-			<$list filter="[enlist<columns>]" variable="column" counter="counter">
+			<$list filter="[enlist<columns>]" variable="column" counter="column-counter">
 				<td class={{{ lm-column-items [[lm-column-]addsuffix<column>] +[join[ ]]}}}>
-					<$list filter="[range[1],<counter>]" variable="ignore">
+					<$list filter="[range[1],<column-counter>]" variable="ignore">
 						<div class="lm-topic-dot">
 						</div>
 					</$list>
 				</td>
-				<td class={{{ [[lm-column-arrows]] [[lm-column-]addsuffix<column>] +[join[ ]] }}}>
-				</td>
+				<$list filter="[<column-counter-last>match[no]]" variable="ignore">
+					<td class={{{ [[lm-column-arrows]] [[lm-column-]addsuffix<column>] +[join[ ]] }}} rowspan="0">
+						<svg width="1em" height="3em" viewBox="0 0 10 30"><path d="M0,0 L10,15 L0,30"/></svg>
+					</td>
+				</$list>
 			</$list>
 		</tr>
 		<tr class="lm-row-title">
@@ -55,11 +58,9 @@ title: $:/plugins/federatial/logic-model/view-template-body
 						</div>
 					</div>
 				</td>
-				<td class={{{ [[lm-column-arrows]] [[lm-column-]addsuffix<column>] +[join[ ]] }}}>
-				</td>
 			</$list>
 		</tr>
-		<$list filter="[range[0],[5]]" variable="row">
+		<$list filter="[range[0],[5]]" variable="row" counter="row-counter">
 			<tr class="lm-row-item">
 				<$list filter="[enlist<columns>]" variable="column" counter="column-counter">
 					<$let
@@ -68,11 +69,6 @@ title: $:/plugins/federatial/logic-model/view-template-body
 						<td class={{{ lm-column-items [[lm-column-]addsuffix<column>] +[join[ ]]}}}>
 							<<logic-model-item>>
 						</td>
-						<$list filter="[<column-counter-last>match[no]]">
-							<td class={{{ [[lm-column-arrows]] [[lm-column-]addsuffix<column>] +[join[ ]] }}}>
-								<svg width="1em" height="3em" viewBox="0 0 10 30"><path d="M0,0 L10,15 L0,30"/></svg>
-							</td>
-						</$list>
 					</$let>
 				</$list>
 			</tr>
