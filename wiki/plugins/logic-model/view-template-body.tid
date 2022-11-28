@@ -5,6 +5,21 @@ title: $:/plugins/federatial/logic-model/view-template-body
 <$transclude tiddler={{{ [[$:/language]get[text]else[$:/languages/en-GB]get[name]else[en-GB]addprefix[$:/plugins/federatial/logic-model/language/]addsuffix[/]addsuffix<__id__>] }}} mode="inline"/>
 \end
 
+\define logic-model-item()
+<$list filter="[<__edit-mode__>match[yes]]" variable="ignore">
+	<div class="lm-item">
+		<$edit-text field=<<item>> tag="textarea" default=""/>
+	</div>
+</$list>
+<$list filter="[<__edit-mode__>!match[yes]]" variable="ignore">
+	<$list filter="[<currentTiddler>has<item>get<item>!is[blank]]" variable="ignore">
+		<div class="lm-item">
+			<$text text={{{ [<currentTiddler>get<item>] }}}/>
+		</div>
+	</$list>
+</$list>
+\end
+
 \define logic-model(edit-mode:"no")
 \whitespace trim
 <$list filter="[<__edit-mode__>match[yes]]" variable="ignore">
@@ -51,14 +66,7 @@ title: $:/plugins/federatial/logic-model/view-template-body
 						item={{{ [[topic-]addsuffix<column>addsuffix[-]addsuffix<row>] }}}
 					>
 						<td class={{{ lm-column-items [[lm-column-]addsuffix<column>] +[join[ ]]}}}>
-							<div class="lm-item">
-								<$list filter="[<__edit-mode__>match[yes]]" variable="ignore">
-									<$edit-text field=<<item>> tag="textarea" default=""/>
-								</$list>
-								<$list filter="[<__edit-mode__>!match[yes]]" variable="ignore">
-									<$text text={{{ [<currentTiddler>get<item>] }}}/>
-								</$list>
-							</div>
+							<<logic-model-item>>
 						</td>
 						<$list filter="[<column-counter-last>match[no]]">
 							<td class={{{ [[lm-column-arrows]] [[lm-column-]addsuffix<column>] +[join[ ]] }}}>
@@ -97,14 +105,7 @@ title: $:/plugins/federatial/logic-model/view-template-body
 						item={{{ [[topic-moderators-]addsuffix<index>] }}}
 					>
 						<td class="lm-column-moderators">
-							<div class="lm-item">
-								<$list filter="[<__edit-mode__>match[yes]]" variable="ignore">
-									<$edit-text field=<<item>> tag="textarea" default=""/>
-								</$list>
-								<$list filter="[<__edit-mode__>!match[yes]]" variable="ignore">
-									<$text text={{{ [<currentTiddler>get<item>] }}}/>
-								</$list>
-							</div>
+							<<logic-model-item>>
 						</td>
 					</$let>
 				</$list>
