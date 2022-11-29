@@ -1,0 +1,128 @@
+title: $:/plugins/federatial/logic-model/macros
+tags: $:/tags/Macro
+
+\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline
+
+\define logic-model-lingo(id)
+\whitespace trim
+<$transclude tiddler={{{ [[$:/language]get[text]else[$:/languages/en-GB]get[name]else[en-GB]addprefix[$:/plugins/federatial/logic-model/language/]addsuffix[/]addsuffix<__id__>] }}} mode="inline"/>
+\end
+
+\define logic-model-item()
+<$list filter="[<__edit-mode__>match[yes]]" variable="ignore">
+	<div class="lm-item">
+		<$edit-text field=<<item>> tag="textarea" default=""/>
+	</div>
+</$list>
+<$list filter="[<__edit-mode__>!match[yes]]" variable="ignore">
+	<$list filter="[<currentTiddler>has<item>get<item>!is[blank]]" variable="ignore">
+		<div class="lm-item">
+			<$transclude field=<<item>> mode="block"/>
+		</div>
+	</$list>
+</$list>
+\end
+
+\define logic-model-blank-warning()
+<div class="lm-view-blank-warning">
+<<logic-model-lingo view/EmptyWarning>>
+</div>
+\end
+
+\define logic-model(model:"",edit-mode:"no")
+\whitespace trim
+<$tiddler tiddler=<<__model__>>>
+	<$list filter="[<__edit-mode__>match[no]]" variable="ignore">
+	<$list filter="[<currentTiddler>fields[]] :filter[<currentTiddler>prefix[topic-]] :filter[<..currentTiddler>get<currentTiddler>else[]!is[blank]] +[limit[1]]" variable="ignore" emptyMessage=<<logic-model-blank-warning>>>
+	<$text text=""/>
+	</$list>
+	</$list>
+	<$list filter="[<__edit-mode__>match[yes]]" variable="ignore">
+	<div class="lm-edit-warning">
+	<<logic-model-lingo edit/Warning>>
+	</div>
+	</$list>
+	<$let
+		columns="target intervention change-mechanisms outcomes"
+	>
+		<table height="1px" class={{{ lm-container [<__edit-mode__>match[yes]then[lm-container-edit]] +[join[ ]] }}}>
+			<tr class="lm-row-dots">
+				<$list filter="[enlist<columns>]" variable="column" counter="column-counter">
+					<td class={{{ lm-column-items [[lm-column-]addsuffix<column>] +[join[ ]]}}}>
+						<$list filter="[range[1],<column-counter>]" variable="ignore">
+							<div class="lm-topic-dot">
+							</div>
+						</$list>
+					</td>
+					<$list filter="[<column-counter-last>match[no]]" variable="ignore">
+						<td class={{{ [[lm-column-arrows]] [[lm-column-]addsuffix<column>] +[join[ ]] }}} rowspan="0">
+							<svg width="1em" height="3em" viewBox="0 0 10 30"><path d="M0,0 L10,15 L0,30"/></svg>
+						</td>
+					</$list>
+				</$list>
+			</tr>
+			<tr class="lm-row-title">
+				<$list filter="[enlist<columns>]" variable="column">
+					<td class={{{ lm-column-items [[lm-column-]addsuffix<column>] +[join[ ]]}}}>
+						<div>
+							<div class="lm-title">
+								<$macrocall $name="logic-model-lingo" id={{{ [<column>addsuffix[/Title]] }}}/>
+							</div>
+							<div class="lm-subtitle">
+								<$macrocall $name="logic-model-lingo" id={{{ [<column>addsuffix[/Description]] }}}/>
+							</div>
+						</div>
+					</td>
+				</$list>
+			</tr>
+			<$list filter="[range[0],[5]]" variable="row" counter="row-counter">
+				<tr class="lm-row-item">
+					<$list filter="[enlist<columns>]" variable="column" counter="column-counter">
+						<$let
+							item={{{ [[topic-]addsuffix<column>addsuffix[-]addsuffix<row>] }}}
+						>
+							<td class={{{ lm-column-items [[lm-column-]addsuffix<column>] +[join[ ]]}}}>
+								<<logic-model-item>>
+							</td>
+						</$let>
+					</$list>
+				</tr>
+			</$list>
+		</table>
+		<table height="1px" class={{{ lm-container [<__edit-mode__>match[yes]then[lm-container-edit]] +[join[ ]] }}}>
+			<tr class="lm-row-bottom-header">
+				<td class="lm-column-moderators">
+					<$list filter="[range[1],[5]]" variable="ignore">
+						<div class="lm-topic-dot">
+						</div>
+					</$list>
+				</td>
+				<td class="lm-column-moderators">
+					<div class="lm-title">
+						<$macrocall $name="logic-model-lingo" id="moderators/Title"/>
+					</div>
+				</td>
+				<td colspan="3" class="lm-column-moderators">
+					<div class="lm-subtitle">
+						<$macrocall $name="logic-model-lingo" id="moderators/Description"/>
+					</div>
+				</td>
+			</tr>
+			<$list filter="[range[0],[1]]" variable="row">
+				<tr class="lm-row-bottom-items">
+					<$list filter="[range[0],[3]]" variable="column">
+						<$let
+							index={{{ [<row>multiply[4]add<column>] }}}
+							item={{{ [[topic-moderators-]addsuffix<index>] }}}
+						>
+							<td class="lm-column-moderators">
+								<<logic-model-item>>
+							</td>
+						</$let>
+					</$list>
+				</tr>
+			</$list>
+		</table>
+	</$let>
+</$tiddler>
+\end

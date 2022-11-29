@@ -100,7 +100,7 @@ tags: $:/tags/Stylesheet
 }
 
 .lm-edit-warning,
-.lm-view-warning {
+.lm-view-blank-warning {
 	text-align: center;
 	font-weight: bold;
 	font-size: 1.3em;

@@ -122,4 +122,4 @@ title: $:/plugins/federatial/logic-model/view-template-body
 </$let>
 \end
 
-<$macrocall $name="logic-model" edit-mode={{{ [<currentTiddler>is[draft]then[yes]else[no]] }}}/>
+<$macrocall $name="logic-model" model=<<currentTiddler>> edit-mode={{{ [<currentTiddler>is[draft]then[yes]else[no]] }}}/>

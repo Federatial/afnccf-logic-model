@@ -11,3 +11,11 @@ title: $:/plugins/federatial/logic-model/readme
 <$button actions=<<create-new-logic-model>>>
 Create new logic model
 </$button>
+
+! Usage
+
+Use the `<<logic-model>>` macro to embed a logic model within another tiddler:
+
+```
+<<logic-model model:"My Example">>
+```
