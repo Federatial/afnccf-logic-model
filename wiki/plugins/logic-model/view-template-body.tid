@@ -20,8 +20,19 @@ title: $:/plugins/federatial/logic-model/view-template-body
 </$list>
 \end
 
+\define logic-model-blank-warning()
+<div class="lm-view-blank-warning">
+<<lingo view/EmptyWarning>>
+</div>
+\end
+
 \define logic-model(edit-mode:"no")
 \whitespace trim
+<$list filter="[<__edit-mode__>match[no]]" variable="ignore">
+<$list filter="[<currentTiddler>fields[]] :filter[<currentTiddler>prefix[topic-]] :filter[<..currentTiddler>get<currentTiddler>else[]!is[blank]] +[limit[1]]" variable="ignore" emptyMessage=<<logic-model-blank-warning>>>
+<$text text=""/>
+</$list>
+</$list>
 <$list filter="[<__edit-mode__>match[yes]]" variable="ignore">
 <div class="lm-edit-warning">
 <<lingo edit/Warning>>

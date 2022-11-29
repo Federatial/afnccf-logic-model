@@ -11,3 +11,4 @@ outcomes/Description: What difference will it make?
 moderators/Title: Moderators
 moderators/Description: What factors will influence the change process?
 edit/Warning: This Logic Model is in edit mode. Be sure to click the {{$:/core/ui/Buttons/save}} button when editing is complete.
+view/EmptyWarning: This Logic Model is blank. Click the {{$:/core/ui/Buttons/edit}} button to start working on it

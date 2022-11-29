@@ -99,16 +99,25 @@ tags: $:/tags/Stylesheet
 	background-color: #594F47;
 }
 
-.lm-edit-warning {
+.lm-edit-warning,
+.lm-view-warning {
 	text-align: center;
 	font-weight: bold;
 	font-size: 1.3em;
 	padding: 1em;
 	margin: 1em -1em 1em -1em;
-	color: #f22;
 	border-radius: 4px;
 	border: 3px solid transparent;
+}
+ 
+.lm-edit-warning {
+	color: #f22;
 	background: #ffd;
 	border: 2px solid #f22;
 }
- 
+
+.lm-view-blank-warning {
+	color: #282;
+	background: #dfd;
+	border: 2px solid #282;
+}
