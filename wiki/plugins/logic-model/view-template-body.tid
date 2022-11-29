@@ -14,7 +14,7 @@ title: $:/plugins/federatial/logic-model/view-template-body
 <$list filter="[<__edit-mode__>!match[yes]]" variable="ignore">
 	<$list filter="[<currentTiddler>has<item>get<item>!is[blank]]" variable="ignore">
 		<div class="lm-item">
-			<$text text={{{ [<currentTiddler>get<item>] }}}/>
+			<$transclude field=<<item>> mode="block"/>
 		</div>
 	</$list>
 </$list>
